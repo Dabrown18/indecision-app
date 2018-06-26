@@ -1,6 +1,26 @@
 {
   "dependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
     "g": "^2.0.1",
     "live-server": "^1.2.0"
-  }
+  },
+  "name": "indecision-app",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dabrown18/indecision-app.git"
+  },
+  "author": "Darron Brown",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dabrown18/indecision-app/issues"
+  },
+  "homepage": "https://github.com/Dabrown18/indecision-app#readme"
 }

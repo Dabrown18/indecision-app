@@ -1,3 +1,5 @@
+// Stateless functional component
+
 class IndecisionApp extends React.Component {
 	constructor(props) {
 		super(props);
@@ -75,20 +77,18 @@ class Header extends React.Component {
   }
 }
 
-class Action extends React.Component {
-  render() {
-    return (
-      <div>
-        <button
-           onClick={this.props.handlePick}
-			  disabled={!this.props.hasOptions}
-        >
-           What should I do?
-        </button>
-      </div>
-    );
-  }
-}
+const Action = (props) => {
+ return (
+	<div>
+	  <button
+		  onClick={props.handlePick}
+		  disabled={!props.hasOptions}
+	  >
+		  What should I do?
+	  </button>
+	</div>
+ );
+};
 
 class Options extends React.Component {
   render() {
@@ -140,7 +140,7 @@ class AddOption extends React.Component {
   render() {
     return (
       <div>
-			{ this.state.error && <p>{ this.state.error }</p>}
+			{ this.state.error && <p>{ this.state.error }</p> }
         <form onSubmit={this.handleAddOption}>
           <input type="text" name="option" />
           <button>Add Option</button>
@@ -150,4 +150,14 @@ class AddOption extends React.Component {
   }
 }
 
+// const User = () => {
+// 	return (
+// 		<div>
+// 			<p>Name: </p>
+// 			<p>Age: </p>
+// 		</div>
+// 	)
+// };
+
 ReactDOM.render(<IndecisionApp />, document.getElementById('app'));
+

@@ -25,11 +25,7 @@ g
 			return 'This option already exist';
 		}
 
-		this.setState((prevState) => {
-			return {
-				options: prevState.options.concat(option)
-			}
-		})
+		this.setState((prevState) => ({ options: prevState.options.concat(option)}));
 	}
 
    handlePick() {
@@ -129,11 +125,10 @@ class AddOption extends React.Component {
 
     const error = this.props.handleAddOption(option);
 
-    this.setState(() => {
-    	return { error }
-    })
+    this.setState(() => ({ error }));
 
   }
+
   render() {
     return (
       <div>

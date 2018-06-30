@@ -5,3 +5,8 @@ import IndecisionApp from './components/IndecisionApp';
 
 ReactDOM.render(<IndecisionApp />, document.getElementById('app'));
 
+class OldSyntax {
+	constructor() {
+		this.name = name
+	}
+}

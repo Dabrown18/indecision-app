@@ -7,18 +7,38 @@ import Options from './Options';
 
 // STATELESS FUNCTIONAL COMPONENT
 export default class IndecisionApp extends React.Component {
-	constructor(props) {
-		super(props);
+	state = {
+		options: []
+	};
 
-		this.state = {
-			options: []
-		};
+	// DELETING ALL OPTIONS IN ARRAY
+	handleDeleteOptions = () => {
+		this.setState(() => ({ options: []}));
+	};
 
-		this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
-		this.handleDeleteOption = this.handleDeleteOption.bind(this);
-		this.handlePick = this.handlePick.bind(this);
-		this.handleAddOption = this.handleAddOption.bind(this);
-	}
+	// DELETING SPECIFIC OPTIONS IN ARRAY
+	handleDeleteOption = (optionToRemove) => {
+		this.setState((prevState) => ({
+			options: prevState.options.filter((option) => optionToRemove !== option)
+		}))
+	};
+
+	handleAddOption = (option) => {
+
+		if(!option) {
+			return 'Enter valid value to add item';
+		} else if (this.state.options.indexOf(option) > -1) {
+			return 'This option already exist';
+		}
+
+		this.setState((prevState) => ({ options: prevState.options.concat(option)}));
+	};
+
+	handlePick = () => {
+		const randomNumber = Math.floor(Math.random() * this.state.options.length);
+		const option = this.state.options[randomNumber];
+		return alert(option);
+	};
 
 	// FETCHING DATA
 	componentDidMount() {
@@ -45,36 +65,6 @@ export default class IndecisionApp extends React.Component {
 
 	componentWillUnmount() {
 		console.log('CWP')
-	}
-
-
-	// DELETING ALL OPTIONS IN ARRAY
-	handleDeleteOptions() {
-		this.setState(() => ({ options: []}));
-	}
-
-	// DELETING SPECIFIC OPTIONS IN ARRAY
-	handleDeleteOption(optionToRemove) {
-		this.setState((prevState) => ({
-			options: prevState.options.filter((option) => optionToRemove !== option)
-		}))
-	}
-
-	handleAddOption(option) {
-
-		if(!option) {
-			return 'Enter valid value to add item';
-		} else if (this.state.options.indexOf(option) > -1) {
-			return 'This option already exist';
-		}
-
-		this.setState((prevState) => ({ options: prevState.options.concat(option)}));
-	}
-
-	handlePick() {
-		const randomNumber = Math.floor(Math.random() * this.state.options.length);
-		const option = this.state.options[randomNumber];
-		return alert(option);
 	}
 
 	render() {

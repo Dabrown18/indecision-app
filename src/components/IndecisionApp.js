@@ -4,11 +4,17 @@ import AddOption from './AddOption';
 import Header from './Header';
 import Action from './Action';
 import Options from './Options';
+import OptionModal from './OptionModal';
 
 // STATELESS FUNCTIONAL COMPONENT
 export default class IndecisionApp extends React.Component {
 	state = {
-		options: []
+		options: [],
+		selectedOption: undefined
+	};
+
+	handleModal = () => {
+		this.setState(() => ({ selectedOption: undefined }))
 	};
 
 	// DELETING ALL OPTIONS IN ARRAY
@@ -37,7 +43,9 @@ export default class IndecisionApp extends React.Component {
 	handlePick = () => {
 		const randomNumber = Math.floor(Math.random() * this.state.options.length);
 		const option = this.state.options[randomNumber];
-		return alert(option);
+		this.setState(() => ({
+			selectedOption: option
+		}))
 	};
 
 	// FETCHING DATA
@@ -85,6 +93,10 @@ export default class IndecisionApp extends React.Component {
 				/>
 				<AddOption
 					handleAddOption={this.handleAddOption}
+				/>
+				<OptionModal
+					selectedOption={this.state.selectedOption}
+					handleModal={this.handleModal}
 				/>
 			</div>
 		);

@@ -9,3 +9,12 @@ body {
 	background-color: $dark-blue;
 	font-size: $med-size;
 }
+
+button {
+	cursor: pointer;
+}
+
+button:disabled {
+	cursor: default;
+}
+

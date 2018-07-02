@@ -3,7 +3,7 @@
 .header {
 	background-color: $off-black;
 	color: #fff;
-	margin-bottom: $xl-size;
+	margin-bottom: $med-size;
 	padding: $med-size 0;
 }
 
@@ -17,4 +17,10 @@
 	font-size: $med-size;
 	font-weight: 500;
 	margin: 0;
+}
+
+@media (min-width: $desktop-breakpoint) {
+	.header {
+		margin-bottom: $xl-size;
+	}
 }

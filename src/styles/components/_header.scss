@@ -1,18 +1,20 @@
+@import "../base/settings";
+
 .header {
-	background-color: #20222b;
+	background-color: $off-black;
 	color: #fff;
-	margin-bottom: 4.8rem;
-	padding: 1.6rem 0;
+	margin-bottom: $xl-size;
+	padding: $med-size 0;
 }
 
 .header_title {
-	font-size: 3.2rem;
+	font-size: $lrg-size;
 	margin: 0;
 }
 
 .header_subtitle {
-	color: #a5afd7;
-	font-size: 1.6rem;
+	color: $off-white;
+	font-size: $med-size;
 	font-weight: 500;
 	margin: 0;
 }
